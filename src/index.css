@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --bg-color: #030712; /* Very dark blue/black */
+  --panel-bg: rgba(15, 23, 42, 0.6);
+  --panel-border: rgba(6, 182, 212, 0.2);
+  --accent-cyan: #06b6d4;
+  --accent-amber: #f59e0b;
+  --accent-emerald: #10b981;
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+    linear-gradient(rgba(6, 182, 212, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 20px rgba(6, 182, 212, 0.02);
+}
+
+.tactical-input {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  transition: all 0.2s ease;
+}
+
+.tactical-input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.2);
+  outline: none;
+}
+
+.tactical-button {
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tactical-button:hover {
+  background: rgba(6, 182, 212, 0.2);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.8);
+}
+
+.tactical-button:active {
+  background: rgba(6, 182, 212, 0.3);
+  transform: scale(0.98);
+}
+
+/* Custom Scrollbar for tactical feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(6, 182, 212, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.3);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.6);
+}
+
+/* Range Slider Styling */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 8px;
+  background: var(--accent-cyan);
+  cursor: pointer;
+  margin-top: -6px;
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: rgba(6, 182, 212, 0.3);
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+.markdown-body {
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+.markdown-body p { margin-bottom: 1em; }
+.markdown-body strong { color: var(--accent-cyan); font-weight: 600; }
+.markdown-body em { color: var(--accent-amber); font-style: italic; }
+.markdown-body code { 
+  font-family: var(--font-mono); 
+  background: rgba(0, 0, 0, 0.5); 
+  padding: 0.1em 0.3em; 
+  border-radius: 3px; 
+  color: var(--accent-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.markdown-body pre {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1em;
+  border-radius: 4px;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+.markdown-body pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  color: var(--text-main);
+}
+.markdown-body ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1em; }
+.markdown-body ol { list-style-type: decimal; padding-left: 1.5em; margin-bottom: 1em; }
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.markdown-body h1 { font-size: 1.5em; border-bottom: 1px solid rgba(6, 182, 212, 0.3); padding-bottom: 0.2em; }
+.markdown-body h2 { font-size: 1.25em; }
+.markdown-body h3 { font-size: 1.1em; }
+.markdown-body blockquote {
+  border-left: 3px solid var(--accent-amber);
+  padding-left: 1em;
+  color: var(--text-muted);
+  margin-bottom: 1em;
+  background: rgba(245, 158, 11, 0.05);
+}
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+.markdown-body th, .markdown-body td {
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  padding: 0.5em;
+  text-align: left;
+}
+.markdown-body th {
+  background: rgba(6, 182, 212, 0.1);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+}
